@@ -1,0 +1,21 @@
+
+name: lunglps
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python
+  - pandas
+  - numpy
+  - scanpy
+  - scipy
+  - scikit-learn
+  - pip
+  - seaborn
+  - ete3
+  - jupyter
+  - r-base
+  - pip:
+    - decoupler
+    - pertpy
+

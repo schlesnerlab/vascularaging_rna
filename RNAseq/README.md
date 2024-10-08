@@ -21,12 +21,34 @@ To run the analysis, follow these steps:
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/yourusername/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/schlesnerlab/vascularaging_rna.git
+    cd vascularaging_rna/RNAseq
     ```
 
-2. Follow the instruction given in the README of each analysis folder.
+2. install Required software 
 
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+3. Run snakedeploy to deploy workflow:
+```sh
+snakedeploy deploy-workflow https://github.com/schlesnerlab/multicondition-deseq2-enrichment multicondition-deseq2-enrichment --branch paper_freeze 
+```
+
+4. Download Data:
+
+    ```sh
+    cd data
+    bash download_data.sh
+    ```
+
+5. Execute Workflow
+    
+    ```sh
+    cd multicondition-deseq2-enrichment
+    snakemake --cores 4 --configfile config/VascAge.yaml
+    ```
 ## Data
 
 The data used in this analysis are the following:
@@ -37,11 +59,7 @@ The data used in this analysis are the following:
 
 Exact instrutions are given in the README
 
-## Analysis
-
-The analysis is divided into the following steps:
-
-After downloading the data, follow the instruction for each README file.
+Divided into the following steps:
 
 ## Results
 

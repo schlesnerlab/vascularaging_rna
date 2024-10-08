@@ -1,0 +1,28 @@
+######
+# Config file for sc cacoa scripts
+#
+
+BASE_FP: "data"
+DATASET: "TabularMuris"
+FILENAME: "senis_droplet_lung"
+
+save_plots: True
+
+download_link: 
+  link: "https://figshare.com/ndownloader/files/15467792"
+  f_type: "h5ad"
+  GEO: ""
+
+organism: "mm"
+
+cacoa_opts:
+  id_field: "mouse.id"
+  age_field: "age"
+  Ident: "cell_ontology_class"
+  regroup_age: True
+
+is_raw: False
+use_anndataR: True
+use_seuratdisk: True
+
+filter:

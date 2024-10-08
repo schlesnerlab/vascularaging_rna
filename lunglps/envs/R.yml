@@ -1,0 +1,21 @@
+name: R
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-soupx
+  - r-matrix<=1.6_1
+  - bioconductor-biomart
+  - r-seurat
+  - bioconductor-scater
+  - bioconductor-scdblfinder
+  - r-tibble
+  - r-dplyr
+  - r-vroom
+  - r-readr
+  - bioconductor-scry
+  - r-devtools
+  - r-biocmanager
+  # set r version to 4.1.2j
+  - r-base==4.2.0
+  - r-dbplyr==2.3.4
