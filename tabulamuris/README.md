@@ -20,6 +20,6 @@ We assume that the user has already cloned the repository, has some version of p
     snakemake --cores 4 --configfile tabulamuris.yaml --use-conda 
 ```
 
-## results
+## Results
 
 results can be found in the data/tabulamurs/report folder structure

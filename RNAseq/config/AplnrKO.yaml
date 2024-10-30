@@ -23,8 +23,8 @@
 ######
 
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
-samples: ../data/Vascage_samples.tsv #### Sample sheet
-counts: ../data/Vascage2020_counts_mod.tsv
+samples: ./data/AplnrKO_samples.tsv #### Sample sheet
+counts: ./data/AplnrKO_counts.tsv
 # path or URL to sequencing unit sheet (TSV format, columns: sample, unit, fq1, fq2, 
 # strandedness). Units are technical replicates (e.g. lanes, or resequencing of the 
 # same biological sample).If the column "strandedness" is present (which is optional), 
@@ -34,31 +34,16 @@ counts: ../data/Vascage2020_counts_mod.tsv
 
 gene_name_type: ENSEMBL
 organism: "Mus musculus"
-SEQ_TYPE: 'single' # only used when pulling data form DKFZ
 
 
 ### Data Dirs ###
 dirs:
   BASE_DATA_DIR: ''
-  BASE_ANALYSIS_DIR: 'data/Vasc_age2020/'
+  BASE_ANALYSIS_DIR: 'data/AplnrKO/'
 
 perform_perturbation: False
 
 
-cluster-config: "../cluster/bsub.yaml"
-
-conda-prefix: ''
-
-trimming:
-  # skip trimming: false or true
-  skip: false 
-  # the sequencing adapter
-  adapter: ACGGATCGATCGATCGATCGAT
-
-ref:
-  # the STAR indexjjj
- # index: "/icgc/ngs_share/assemblies/mm10/indexes/STAR/STAR_2.5.2b_GRCm38mm10_gencodevM12_PhiX_100bp"  # gtf file with transcripts
- # annotation: "/icgc/ngs_share/assemblies/mm10/databases/gencode/gencodeM12/gencode.vM12.annotation.GRCm38mm10_Phix.gtf"
 
 pca:
   labels:
@@ -72,10 +57,10 @@ diffexp:
   shrink_lfc: True
   # contrasts for the deseq2 results method
   contrasts:
-    condition:
-      m18lung_vs_d0lung:
-        - 18m-lung
-        - d0-lung
+    condition:  
+      AplnrKO_vs_basal:
+        - AplnrKO
+        - basal
   model: "~condition"
   filter_samples:
     condition: False 
@@ -87,11 +72,17 @@ gsea:
     use_gsea: True
     database: MSigDB
     id_class: ENSEMBL
+  MitoCarta:
+    category: NULL
+    subcategory: NULL
+    use_gsea: True
+    database: MitoCarta
+    id_class: ENSEMBL  
 comp_groups:
   condition:    
-    m18lung_vs_d0lung:
-      - 18m-lung
-      - d0-lung
+    AplnrKO_vs_basal:
+    - AplnrKO
+    - basal
   
 params:
   star: ""
@@ -100,11 +91,11 @@ params:
 
 group_colors:
   condition:
-    d0-lung:  "grey"
-    18m-lung: "#A00101"
+    AplnrKO: "red"
+    basal: "blue"
 
 do_salmon: False
-run_mitch: ["condition"]
+run_mitch: False
 run_carnival:
   vanilla: False
   inverse: False
