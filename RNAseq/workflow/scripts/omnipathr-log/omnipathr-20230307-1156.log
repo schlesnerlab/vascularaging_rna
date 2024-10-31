@@ -1,0 +1,11 @@
+[2023-03-07 11:56:26] [INFO]    [OmnipathR] Welcome to OmnipathR!
+[2023-03-07 11:56:26] [INFO]    [OmnipathR] Initialized cache: `/home/heyer/.cache/OmnipathR`.
+[2023-03-07 11:56:36] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/6c78c3a8952daddd73a6b8939a851a7c60c6ab2c-1.rds`.
+[2023-03-07 11:56:36] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=omnipath&organisms=10090&fields=sources,references,curation_effort&license=academic`
+[2023-03-07 11:56:37] [SUCCESS] [OmnipathR] Loaded 36361 interactions from cache.
+[2023-03-07 12:02:51] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/6c78c3a8952daddd73a6b8939a851a7c60c6ab2c-1.rds`.
+[2023-03-07 12:02:51] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=omnipath&organisms=10090&fields=sources,references,curation_effort&license=academic`
+[2023-03-07 12:02:54] [SUCCESS] [OmnipathR] Loaded 36361 interactions from cache.
+[2023-03-07 12:05:38] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/6c78c3a8952daddd73a6b8939a851a7c60c6ab2c-1.rds`.
+[2023-03-07 12:05:38] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=omnipath&organisms=10090&fields=sources,references,curation_effort&license=academic`
+[2023-03-07 12:05:41] [SUCCESS] [OmnipathR] Loaded 36361 interactions from cache.

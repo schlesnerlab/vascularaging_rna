@@ -1,0 +1,74 @@
+[2024-10-22 11:41:41] [INFO]    [OmnipathR] Welcome to OmnipathR!
+[2024-10-22 11:41:41] [INFO]    [OmnipathR] OmnipathR version: 3.13.25
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] Reading JSON from `/home/heyer/.cache/OmnipathR/cache.json` (encoding: UTF-8).
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:41] [INFO]    [OmnipathR] Initialized cache: `/home/heyer/.cache/OmnipathR`.
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/db/db_def.json` (encoding: UTF-8).
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/magic_bytes.json` (encoding: UTF-8).
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/urls.json` (encoding: UTF-8).
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/id_types.json` (encoding: UTF-8).
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-10-22 11:41:41] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:49] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-10-22 11:41:49] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:50] [INFO]    [OmnipathR] Loading database `Ensembl and OMA organism names`.
+[2024-10-22 11:41:50] [INFO]    [OmnipathR] Looking up in cache `https://www.ensembl.org/info/about/species.html`: key=7332486db7400730697234bad76ca0c8e4d00799, latest version=1.
+[2024-10-22 11:41:50] [TRACE]   [OmnipathR] Cache file path: /home/heyer/.cache/OmnipathR/7332486db7400730697234bad76ca0c8e4d00799-1.html
+[2024-10-22 11:41:50] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/All/oma-species.txt`.
+[2024-10-22 11:41:50] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/30e690cbb55dfc63b5903ab337f34ffc2f4be397-1.rds`.
+[2024-10-22 11:41:50] [INFO]    [OmnipathR] Loaded database `Ensembl and OMA organism names`.
+[2024-10-22 11:41:50] [TRACE]   [OmnipathR] Arguments for OmniPath query: [wide=TRUE,resources=PROGENy,query_type=annotations]
+[2024-10-22 11:41:50] [TRACE]   [OmnipathR] Organism(s): 9606
+[2024-10-22 11:41:50] [TRACE]   [OmnipathR] Orthology targets: 
+[2024-10-22 11:41:51] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-10-22 11:41:51] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-10-22 11:41:51] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-10-22 11:41:52] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-10-22 11:41:52] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-10-22 11:41:52] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-10-22 11:41:56] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/All/oma-species.txt`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/30e690cbb55dfc63b5903ab337f34ffc2f4be397-1.rds`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/All/oma-species.txt`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/30e690cbb55dfc63b5903ab337f34ffc2f4be397-1.rds`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/api/pairs/HUMAN/MOUSE/?format=tsv&xrefs=UniProtKB%2FSwissProt&per_page=2000000`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/8f45b25c384d814c7de210e7ca40b7e35894e4f1-1.rds`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] ID translation table: from `uniprot_entry` to `uniprot`, using `uniprot`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Creating ID mapping table from `id` to `accession`, for organism 9606 (only reviewed: TRUE)
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Loading all UniProt records for organism 9606 (only reviewed: TRUE); fields: id,accession
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=id,accession&query=organism_id:9606%20AND%20reviewed:true`.
+[2024-10-22 11:41:56] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/6558a1824894a625b8e3f80538cd3aa6e8a44379-1.rds`.
+[2024-10-22 11:41:56] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 20435 records from cache
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] Translating complexes: 0 complexes in data.
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] 0 complexes after removing the ones mapping to more than 1 items in target identifier space.
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] Translated 0 complexes to 0.
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] 13719 rows before translation, 13719 uniprot_entry IDs in column `id_organism_a`.
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] 13719 rows after translation; translated 13474 `uniprot_entry` IDs in column `id_organism_a` to 13474 `uniprot` IDs in column `id_organism_a`.
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] ID translation table: from `uniprot_entry` to `uniprot`, using `uniprot`.
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] Creating ID mapping table from `id` to `accession`, for organism 10090 (only reviewed: TRUE)
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: id,accession
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=id,accession&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-10-22 11:41:58] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/43ea5f2cdaa9ac7e0e114371af97235cdddd776f-1.rds`.
+[2024-10-22 11:41:58] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17212 records from cache
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] Translating complexes: 0 complexes in data.
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] 0 complexes after removing the ones mapping to more than 1 items in target identifier space.
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] Translated 0 complexes to 0.
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] 13719 rows before translation, 13718 uniprot_entry IDs in column `id_organism_b`.
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] 13719 rows after translation; translated 13174 `uniprot_entry` IDs in column `id_organism_b` to 13174 `uniprot` IDs in column `id_organism_b`.
+[2024-10-22 11:41:59] [INFO]    [OmnipathR] Loaded database `Orthologous Matrix (OMA) gene pairs`.
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-10-22 11:41:59] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-10-22 11:41:59] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-10-22 11:42:01] [TRACE]   [OmnipathR] Translating complexes: 0 complexes in data.
+[2024-10-22 11:42:01] [TRACE]   [OmnipathR] 0 complexes after removing the ones mapping to more than 1 items in target identifier space.
+[2024-10-22 11:42:01] [TRACE]   [OmnipathR] Translated 0 complexes to 0.
+[2024-10-22 11:42:01] [TRACE]   [OmnipathR] 163028 rows before translation, 12781 uniprot IDs in column `uniprot`.
+[2024-10-22 11:42:01] [TRACE]   [OmnipathR] 163028 rows after translation; translated 12781 `uniprot` IDs in column `uniprot` to 12691 `genesymbol` IDs in column `genesymbol`.
+[2024-10-22 11:47:02] [TRACE]   [OmnipathR] Removing database `Orthologous Matrix (OMA) gene pairs` (not used in the past 300 seconds)

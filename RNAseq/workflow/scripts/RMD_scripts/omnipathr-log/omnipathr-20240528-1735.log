@@ -1,0 +1,96 @@
+[2024-05-28 17:35:57] [INFO]    [OmnipathR] Welcome to OmnipathR!
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] Reading JSON from `/home/heyer/.cache/OmnipathR/cache.json` (encoding: UTF-8).
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:35:57] [INFO]    [OmnipathR] Initialized cache: `/home/heyer/.cache/OmnipathR`.
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/db/db_def.json` (encoding: UTF-8).
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/magic_bytes.json` (encoding: UTF-8).
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/urls.json` (encoding: UTF-8).
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/id_types.json` (encoding: UTF-8).
+[2024-05-28 17:35:57] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:35:57] [INFO]    [OmnipathR] Loading database `Ensembl and OMA organism names`.
+[2024-05-28 17:35:58] [INFO]    [OmnipathR] Looking up in cache `https://www.ensembl.org/info/about/species.html`: key=7332486db7400730697234bad76ca0c8e4d00799, latest version=1.
+[2024-05-28 17:35:58] [TRACE]   [OmnipathR] Cache file path: /home/heyer/.cache/OmnipathR/7332486db7400730697234bad76ca0c8e4d00799-1.html
+[2024-05-28 17:35:58] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/All/oma-species.txt`.
+[2024-05-28 17:35:58] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/30e690cbb55dfc63b5903ab337f34ffc2f4be397-1.rds`.
+[2024-05-28 17:35:58] [INFO]    [OmnipathR] Loaded database `Ensembl and OMA organism names`.
+[2024-05-28 17:35:58] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-05-28 17:35:59] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/34b846ab9ed6fb44ec18a49ebb234ca4910737a3-1.rds`.
+[2024-05-28 17:35:59] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-05-28 17:35:59] [TRACE]   [OmnipathR] Converting JSON column `extra_attrs` to list.
+[2024-05-28 17:36:00] [TRACE]   [OmnipathR] Converting JSON column `evidences` to list.
+[2024-05-28 17:36:03] [TRACE]   [OmnipathR] Restricting interaction records to datasets: collectri; and resources: any
+[2024-05-28 17:36:07] [TRACE]   [OmnipathR] Filtering evidence columns: positive, negative, directed, undirected; to datasets: collectri; and resources: any; excluding resources: none
+[2024-05-28 17:37:02] [SUCCESS] [OmnipathR] Downloaded 38823 interactions.
+[2024-05-28 17:40:35] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-05-28 17:40:36] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/34b846ab9ed6fb44ec18a49ebb234ca4910737a3-1.rds`.
+[2024-05-28 17:40:36] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-05-28 17:40:36] [TRACE]   [OmnipathR] Converting JSON column `extra_attrs` to list.
+[2024-05-28 17:40:38] [TRACE]   [OmnipathR] Converting JSON column `evidences` to list.
+[2024-05-28 17:40:40] [TRACE]   [OmnipathR] Restricting interaction records to datasets: collectri; and resources: any
+[2024-05-28 17:40:43] [TRACE]   [OmnipathR] Filtering evidence columns: positive, negative, directed, undirected; to datasets: collectri; and resources: any; excluding resources: none
+[2024-05-28 17:41:40] [SUCCESS] [OmnipathR] Downloaded 38823 interactions.
+[2024-05-28 17:45:04] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:45:04] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:45:04] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:45:04] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:45:04] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:45:06] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-05-28 17:45:06] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:45:06] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-05-28 17:45:07] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.
+[2024-05-28 17:45:27] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:45:27] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:45:28] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:45:28] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:45:28] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:45:30] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-05-28 17:45:30] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:45:30] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-05-28 17:45:31] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.
+[2024-05-28 17:45:49] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:45:49] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:45:50] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:45:50] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:45:50] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:45:52] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-05-28 17:45:52] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:45:52] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-05-28 17:45:53] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.
+[2024-05-28 17:46:59] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:46:59] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:47:00] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:47:00] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:47:00] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:47:02] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-05-28 17:47:02] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:47:02] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-05-28 17:47:03] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.
+[2024-05-28 17:47:32] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:47:32] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:47:33] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:47:33] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:47:33] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:47:35] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-05-28 17:47:35] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:47:35] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-05-28 17:47:36] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.
+[2024-05-28 17:48:06] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:48:06] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:48:07] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:48:07] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:48:07] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:48:09] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-05-28 17:48:09] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:48:09] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-05-28 17:48:38] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:48:38] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:48:39] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-05-28 17:48:39] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-05-28 17:48:39] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:48:40] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-05-28 17:48:41] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-05-28 17:48:41] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-05-28 17:48:42] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.

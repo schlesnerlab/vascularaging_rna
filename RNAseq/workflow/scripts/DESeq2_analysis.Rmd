@@ -1,0 +1,582 @@
+---
+title: "DEseq_2_analysis"
+author: "Christian Heyer"
+date: "r`Sys.Date`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 2
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
+---
+```{css, echo=FALSE}
+body .main-container {
+  max-width: 1800px !important;
+  width: 1800px !important;
+}
+body {
+  max-width: 1800px !important;
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE,
+  fig.width = 12, fig.height = 12
+)
+
+library(tidyverse)
+library(clusterProfiler)
+
+library(DESeq2)
+library(enrichplot)
+library(ggupset)
+library(patchwork)
+library(biomaRt)
+library(svglite)
+if (!require("RNAscripts")) {
+  devtools::install("./RNAscripts")
+}
+library("RNAscripts")
+library("BiocParallel")
+library(ComplexHeatmap)
+```
+
+
+```{r readData}
+if (exists("snakemake")) {
+  dds_path <- snakemake@input[["dds_obj"]]
+  diffexp_tb_path <- snakemake@input[["table"]]
+  fpkm_path <- snakemake@input[["fpkm"]]
+  feature_counts_fp <- snakemake@input[["featureCounts"]]
+  enrich_list <- snakemake@input[["gsea_result"]]
+  cond_id <- snakemake@wildcards[["condition"]]
+  write(cond_id, file = stderr())
+  contrast_groups <- snakemake@params[["contrast"]]
+  coef_string <- paste0(
+    cond_id, "_", contrast_groups[[1]], "_vs_",
+    contrast_groups[[2]]
+  )
+  samp_map <- snakemake@params[["samples"]]
+  lfc_shrink <- snakemake@config[["diffexp"]][["shrink_lfc"]]
+  rld_path <- snakemake@input[["rld"]]
+  register(MulticoreParam(snakemake@threads))
+  lfc_threshold <- snakemake@config[["diffexp"]][["LFC_threshold"]]
+  pvalue_threshold <- snakemake@config[["diffexp"]][["pval_threshold"]]
+  plot_path <- snakemake@params[["plot_path"]]
+  group_colors <- snakemake@config[["group_colors"]][[cond_id]] %>% unlist()
+  if (!is.null(snakemake@config[["diffexp"]][["custom_model"]][[cond_id]])) {
+    model_string <- snakemake@config[["diffexp"]][["custom_model"]][[cond_id]]
+  } else {
+    model_string <- snakemake@config[["diffexp"]][["model"]]
+  }
+  organism <- snakemake@config[["organism"]]
+  conf <- snakemake@config
+} else {
+  conf <- yaml::read_yaml("../../configs/VascAge_config.yaml")
+  base_analysis_dir <- file.path(conf$dirs$BASE_ANALYSIS_DIR)
+
+  cond_id <- names(conf$diffexp$contrasts)[1]
+  comp_id <- names(conf$diffexp$contrasts[[cond_id]])[3]
+  contrast_groups <- conf$diffexp$contrasts[[cond_id]][[comp_id]]
+  coef_string <- paste0(
+    cond_id, "_", contrast_groups[[1]], "_vs_",
+    contrast_groups[[2]]
+  )
+  dds_path <- file.path(paste0(base_analysis_dir), "deseq2/all.rds")
+  diffexp_tb_path <- file.path(
+    paste0(base_analysis_dir),
+    glue::glue("results/diffexp/{cond_id}/{comp_id}.diffexp.tsv")
+  )
+  fpkm_path <- file.path(base_analysis_dir, "fpkm/all.tsv")
+  samp_map <- file.path(conf$samples)
+  rld_path <- file.path(
+    paste0(base_analysis_dir),
+    "deseq2/rlog_transform.RDS.gz"
+  )
+  register(SerialParam())
+  plot_path <- "./"
+  lfc_threshold <- 0.5
+  pvalue_threshold <- 0.05
+  enrich_list <- file.path(
+    base_analysis_dir,
+    glue::glue("results/diffexp/{cond_id}/{comp_id}.gseares.RDS")
+  )
+
+  group_colors <- conf[["group_colors"]][[cond_id]] %>% unlist()
+  organism <- conf$organism
+  lfc_shrink <- TRUE
+  model_string <- "~ condition"
+}
+
+dir.create(plot_path, recursive = TRUE)
+
+
+dds_obj <- readRDS(dds_path)
+rld <- readRDS(rld_path)
+enrich_list <- readRDS(enrich_list)
+
+fpkm <- readr::read_tsv(fpkm_path)
+```
+
+## DESeq 2 Differential expression analysis
+
+Using DESeq2, each contrast was investigated for differential expression. The DESeq2 model 
+assumes a negative bionomial distribution of the read counts.
+
+The DESeq2 analysis approach is described [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0550-8).
+
+The table below lists the top 
+Further we use the DEseq2 rlog transformation to normalize read counts for plotting and downstream
+analysis. A significance level p-value of `r pvalue_threshold` is used. Additonally only genes with a Log fold change higher than `r lfc_threshold`
+are deemed significant.
+
+All resulting plots are also exported as a svg file. 
+
+## MA plots
+
+showing the results of the MAPlot depending on if logFoldShrinkage has been performed
+`r ifelse(lfc_shrink, "LFC shrinkage done", "No LFC Shrinkage") `
+
+
+```{r MAPlot}
+if (!is.null(conf$diffexp$custom_model[[cond_id]])) {
+  model_string <- conf$diffexp$custom_model[[cond_id]]
+  # Rerun deseq since it was intialized
+  for (x in names(conf[["diffexp"]][["contrasts"]])) {
+    colData(dds_obj)[, x] <- as.factor(colData(dds_obj)[, x])
+  }
+  colData(dds_obj)[, cond_id] <- as.factor(colData(dds_obj)[, cond_id])
+  design(dds_obj) <- as.formula(model_string)
+  dds_obj <- DESeq(dds_obj)
+  dds_obj@colData[, cond_id] <- relevel(dds_obj@colData[, cond_id],
+    ref = contrast_groups[2]
+  )
+}
+if (lfc_shrink) {
+  dds_obj@colData[, cond_id] <- relevel(dds_obj@colData[, cond_id],
+    ref = contrast_groups[2]
+  )
+  design(dds_obj) <- as.formula(model_string)
+  dds_obj <- DESeq(dds_obj)
+  write(coef_string, file = stderr())
+  res <- lfcShrink(dds_obj,
+    coef = stringr::str_replace_all(coef_string, "-", "."),
+    type = "apeglm"
+  )
+} else {
+  res <- results(dds_obj, contrast = c(cond_id, contrast_groups))
+}
+DESeq2::plotMA(res)
+```
+
+
+```{r load DEseq data, echo=FALSE}
+sample_overview <- readr::read_tsv(samp_map)
+
+deseq_tb <- readr::read_tsv(diffexp_tb_path,
+  col_names = c(
+    "gene_id",
+    "baseMean",
+    "logFoldChange",
+    "lfcSE", "stat",
+    "pvalue", "padj"
+  ),
+  skip = 1
+)
+"../"
+sample_overview <- sample_overview %>%
+  dplyr::filter(sample %in% rownames(colData(dds_obj)))
+
+filer <- fpkm %>% dplyr::filter(gene %in% deseq_tb$gene_id)
+
+joined_df <- join_tables(deseq_tb, filer)
+
+joined_df <- joined_df %>%
+  dplyr::mutate(overexpressed_in = ifelse(logFoldChange > 0,
+    contrast_groups[1], contrast_groups[2]
+  ))
+
+mean_tb <- joined_df %>%
+  dplyr::filter(padj < pvalue_threshold &
+    abs(logFoldChange) > lfc_threshold) %>%
+  RNAscripts::mean_tibble_from_mat(., "logFoldChange",
+    contrast_groups = contrast_groups,
+    s_map = sample_overview, cond_id = cond_id
+  )
+DT::datatable(mean_tb)
+```
+
+## Heatmap of Differentially Expressed genes
+
+The following heatmap shows the top differentially expressed genes as defined above. Genes are clustered, however the columns are not.
+The expression values are DESeq2 rlog normalized expression values. 
+
+Here you can identify clustered of differntially expressed genes to a certain degree.
+
+The Heatmap shows the rlog transformed Count values from deseq seq which are centered to the Mean for each row. 
+
+```{r plot Heatmaps, fig.width = 14,fig.height =12} 
+diff_exp_trans <- SummarizedExperiment::assay(rld)[joined_df$gene, ]
+rownames(diff_exp_trans) <- joined_df$gname
+write(cond_id, file = stderr())
+df_col <- data.frame(SummarizedExperiment::colData(rld)[, c(cond_id)])
+
+if (!is.null(group_colors)) {
+  col_annotation <- HeatmapAnnotation(
+    condition = dds_obj@colData[, cond_id],
+    col = list(condition = group_colors)
+  )
+} else {
+  col_annotation <- HeatmapAnnotation(condition = dds_obj@colData[, cond_id])
+}
+rownames(df_col) <- colnames(SummarizedExperiment::assay(rld))
+colnames(df_col) <- cond_id
+index_vec <- which(joined_df$padj < pvalue_threshold &
+  abs(joined_df$logFoldChange) > lfc_threshold)
+diff_exp_genes <- diff_exp_trans[index_vec, ]
+small_joined_df <- joined_df[joined_df$padj < pvalue_threshold &
+  abs(joined_df$logFoldChange) > lfc_threshold, ]
+small_joined_df <- na.omit(small_joined_df)
+
+if (nrow(small_joined_df) > 1) {
+  scaled_diffexp <- diff_exp_genes
+  diffexp_heatmap <- Heatmap(
+    head(scaled_diffexp[order(
+      abs(small_joined_df$logFoldChange * -log10(small_joined_df$padj)),
+      decreasing = TRUE
+    ), ], 50),
+    top_annotation = col_annotation
+  )
+  save_cheatmap_svg(
+    x = diffexp_heatmap,
+    filename = file.path(
+      plot_path,
+      "diffexp_heatmap.svg"
+    )
+  )
+  diffexp_heatmap
+}
+```
+
+### Volcanoplot
+
+The following plot shows the top differential expressed genes in both LogFold change and p-value.
+
+```{r plot Vo}
+library(EnhancedVolcano)
+
+volcano_plot <- EnhancedVolcano(as.data.frame(joined_df),
+  lab = joined_df$gname,
+  x = "logFoldChange",
+  y = "padj",
+  title = paste(contrast_groups, collapse = "_vs_"),
+  pCutoff = pvalue_threshold,
+  ylab = bquote(~ -Log[10] ~ italic(Padj)), FCcutoff = lfc_threshold
+)
+ggsave(
+  filename = file.path(plot_path, "Volcano_plot.svg"),
+  plot = volcano_plot
+)
+
+volcano_plot
+```
+
+## Top over and underexpressed genes
+
+differentially expressed genes are defined as genes with a padj < 0.05 and an abs(logFoldChange) > 0.5 are plotted into a heatmap again.
+However, to better contrast the two tested groups, the other groups have been removed from the following heatmaps. 
+Further, one heatmap each is generated for the over expressed genes for each of the two sample groups. The first two heatmaps show the total gene expression
+normalized using the DESeq2 rlog approach.
+
+The Red and blue heatmaps show the gene expression normalized by the mean expression per gene in each column, to better display the changes in gene expression between the two groups. 
+
+
+```{r centered heatmap, fig.width = 14,fig.height =12}
+#' Uniquify a vector
+#'
+#' @param x Input factor to check
+#' @return corrected facotr value
+#' @examples
+#' NULL
+uniquify <- function(x) {
+  if (length(x) == 1) {
+    x
+  } else {
+    sprintf("%s_%02d", x, seq_along(x))
+  }
+}
+
+#' Disambiguate a vector
+#'
+#' Add numbered suffixes to redundant entries in a vector
+#'
+#' @param in_vector Vector to be disambiguated
+#' @importFrom stats ave
+#' @return The disambiguated vector.
+#' @export
+#'
+#' @examples
+#' NULL
+#'
+disambiguate_vector <- function(in_vector) {
+  ave(in_vector, in_vector, FUN = uniquify)
+}
+diff_exp_heatmaps <- list()
+diff_norm_heatmaps <- list()
+
+
+if (!is.null(group_colors)) {
+  col_annotation <-
+    HeatmapAnnotation(
+      condition = dds_obj@colData[dds_obj@colData[, cond_id] %in%
+        contrast_groups, cond_id],
+      col = list(condition = group_colors)
+    )
+} else {
+  col_annotation <- HeatmapAnnotation(
+    condition = dds_obj@colData[dds_obj@colData[, cond_id] %in%
+      contrast_groups, cond_id]
+  )
+}
+
+filtered_join_df <-
+  joined_df[] %>% dplyr::filter(padj < pvalue_threshold &
+    abs(logFoldChange) > lfc_threshold)
+# Since it can happen that duplicate gene names appear -> uplicates are marked
+
+filtered_join_df$gname <- disambiguate_vector(filtered_join_df$gname)
+
+s_table <-
+  filter_split_table(rld, contrast_groups, filtered_join_df,
+    reorder_genes = FALSE,
+    cond_id = cond_id
+  )
+r_means <- rowMeans(s_table)
+r_sds <- apply(s_table, 1, sd)
+s_table_centered <- s_table - r_means
+s_table_norm <- t(scale(t(s_table)))
+
+
+
+diff_exp_heatmaps <- ComplexHeatmap::Heatmap(
+  s_table_centered,
+  cluster_rows = TRUE,
+  top_annotation = col_annotation,
+  name = "Centered exp.",
+  row_split = filtered_join_df$overexpressed_in,
+  column_names_rot = 45,
+  show_row_names = nrow(s_table_norm) < 100,
+)
+diff_norm_heatmaps <- ComplexHeatmap::Heatmap(
+  s_table_norm,
+  cluster_rows = TRUE,
+  top_annotation = col_annotation,
+  name = "z-score exp.",
+  column_names_rot = 45,
+  show_row_names = nrow(s_table_norm) < 100
+)
+
+if (nrow(filtered_join_df) > 0) {
+  save_cheatmap_svg(diff_exp_heatmaps,
+    file.path(plot_path, "split_heatmap.svg"),
+    width = 14, height = 12
+  )
+
+  save_cheatmap_svg(diff_norm_heatmaps,
+    file.path("standard_redblue_heatmap.svg"),
+    width = 14, height = 12
+  )
+
+  plot(diff_exp_heatmaps)
+  plot(diff_norm_heatmaps)
+}
+```
+
+## Gene Set Enrichment
+
+While a list of gene names is of interest for our analysis, gene set enrichment analysis (GSEA) provides a way to discover biological pathways,
+associated to the differentially expressed genes found here. Here, we use Gene set Enrichment analysis against:
+- MsigDB database
+- kegg Pathway database
+- Reactome database
+
+We also use an over representation test on the MsigDB pathway database as a comparison to GSEA, which is in itself the more robust technique. 
+
+
+
+```{r go enrichment}
+genereate_gsea_plots <- function(gsea_obj, gsea_name) {
+  cat("\n")
+  cat("### ", gsea_name , " \n")
+  cat("\n")
+
+
+}
+msig_enrichment <- enrich_list$msig_enrichment
+
+msig_gsea <- enrich_list$msig_gsea
+
+kegg <- enrich_list$kegg
+
+reactome_stuff <- enrich_list$reactome_stuff
+
+ensembl_gene_list <- joined_df %>% dplyr::select(c(gene, stat))
+gene_list <- joined_df %>% dplyr::select(c(gname, stat))
+```
+
+
+## Gene set enrichment plots{.tabset}
+
+The two following plots show plots for GSEA for KEGG and Reactome enrichments
+The Upsetplot visualizes the fold change distribution for the enriched terms (barplot)
+The heatmap like plot colors each genes enrichment in the various pathways by their (shrunken)  log-fold changes.
+
+In the first plot, a heatmap of the LogfoldChanges of enriched genes over the
+different pathyways is show, giving a quick overview where genes are enriched in.
+
+The second plot shows an upset plot of overlapping genes, showing if the 
+few significant genes are causing many enrichments to pop up. 
+
+The last plot shown is a network plot associating enriched pathways to genes, better
+highlighting single genes active across multiple enrichment nodes. 
+
+Msigdb enrichments are tested both using gsea and over representation tests. GSEA are statistically more robust,
+however since over representation test would give more results, we also give 
+this method a try.
+
+Note: 
+- GeneRatio denotes the % of genes found in the designated gene set. (for over rep test
+- for GSEA: GeneRatio denotes $\frac{Core\ enriched\ genes}{Set\ Size} *100$
+
+
+```{r msigdb, fig.width = 10,fig.height =10, results='asis'}
+better_dotplot <- function(gset, c_groups = contrast_groups) {
+  pos_gsea <- gset %>% dplyr::filter(NES > 0.5) %>% dplyr::arrange(desc(NES))
+
+  if (nrow(pos_gsea) > 1) {
+    dp_pos_nes <-
+      dotplot(
+        pos_gsea,
+        size = "NES",
+        color = "p.adjust",
+        showCategory = 20,
+        title = glue::glue("Pathways enriched in {contrast_groups[1]}")
+      ) +
+      scale_size(range = c(1, 7), limits = c(1, max(gset@result$NES)))
+  } else {
+    dp_pos_nes <- NULL
+  }
+
+  neg_gsea <- gset %>% dplyr::filter(NES < -0.5) %>% dplyr::arrange(NES)
+
+  if (nrow(neg_gsea) > 1) {
+    dp_neg_nes <-
+      dotplot(
+        neg_gsea,
+        size = "NES",
+        color = "p.adjust",
+        showCategory = 20,
+        title = glue::glue("Pathways enriched in {contrast_groups[2]}")
+      ) +
+      scale_size(range = c(7, 1), limits = c(min(gset@result$NES), -1))
+  } else {
+    dp_neg_nes <- NULL
+  }
+
+  return(list(dp_pos_nes, dp_neg_nes))
+}
+#' Title
+#'
+#' @param d_plot
+#' @param p_group
+#' @param p_path
+#'
+#' @return
+#' @export
+#'
+#' @examples
+save_dotplots <- function(d_plot, p_group, p_path = plot_path, gsea_type) {
+  ggplot2::ggsave(
+    filename = file.path(
+      p_path,
+      glue::glue("{p_group}_{gsea_type}_dplot.svg")
+    ),
+    d_plot, width = 10, height = 10
+  )
+}
+
+org_db <- get_org_db(organism)
+
+do_gseaplots <- function(enrich_res, gsea_name) {
+  cat("\n")
+  cat("### ", gsea_name , " \n")
+  cat("\n")
+
+  id_class <- conf[["gsea"]][[gsea_name]][["id_class"]]
+  all_plots <- list()
+  if (!is.null(enrich_res)) {
+    if (nrow(enrich_res) > 1) {
+      enrich_res <- clusterProfiler::setReadable(enrich_res, org_db, id_class)
+      z <- enrichplot::upsetplot(enrich_res)
+      all_plots$upset <- z
+      if (conf[["gsea"]][[gsea_name]][["use_gsea"]]) {
+        enrich_plots <- RNAscripts::plot_enrichment(enrich_res, 
+          X = "ID", Y = "NES",
+          pval = "p.adjust"
+        )
+        ggsave(filename = file.path(plot_path, paste0(
+          contrast_groups[1], "_vs_",
+          contrast_groups[2],
+          "_", gsea_name, "_enrichplot.svg"
+        )), plot = enrich_plots)
+        print(enrich_plots)
+        all_plots$enrichplots <- enrich_plots
+
+        dplot <- better_dotplot(enrich_res, c_groups = contrast_groups)
+        x<- purrr::map(dplot, print)
+        purrr::map2(dplot, contrast_groups, save_dotplots, gsea_type = gsea_name )
+        all_plots$dotplots <- dplot      
+        cnetplot <- cnetplot(enrich_res,
+                                foldChange = set_names(joined_df$logFoldChange, gene_list$gname),
+                                node_label = "all",
+                                layout = "nicely",
+                                cex_label_category = 0.8,
+                                cex_label_gene = 0.6
+                                )
+        print(cnetplot)
+        
+        ggsave(
+          filename = file.path(plot_path, paste0(
+            contrast_groups[1],
+            "_vs_", contrast_groups[2], "_", gsea_name,
+            "_cnet.svg"
+          )),
+          cnetplot, width = 16, height = 16
+        )
+        all_plots <- cnetplot
+      } else {
+        enrich_plots <- NULL
+        all_plots$dotplots <- dotplot(msig_enrichment) 
+        print(dotplot)
+      }
+    } else {
+      all_plots <- NULL
+    }
+  }
+  cat("\n \n")
+  return(all_plots)
+}
+
+
+all_plots <- purrr::map2(enrich_list, names(enrich_list), do_gseaplots)
+
+
+```
+  
+
+
+
+
+

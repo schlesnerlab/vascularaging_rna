@@ -1,0 +1,20 @@
+[2022-10-05 15:40:04] [INFO]    [OmnipathR] Initialized cache: `/home/heyer/.cache/OmnipathR`.
+[2022-10-05 15:40:04] [INFO]    [OmnipathR] Welcome to OmnipathR!
+[2022-10-05 15:40:07] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2022-10-05 15:40:07] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2022-10-05 15:40:07] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2022-10-05 15:43:29] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2022-10-05 15:43:29] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2022-10-05 15:43:30] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2022-10-05 15:54:31] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/ff347dedf78ef5e38c9c6d8eed291fa901aa3791-1.rds`.
+[2022-10-05 15:54:31] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=dorothea&organisms=10090&dorothea_levels=A,B,C,D&fields=sources,references,curation_effort,dorothea_level&license=academic`
+[2022-10-05 15:54:34] [SUCCESS] [OmnipathR] Loaded 256977 interactions from cache.
+[2022-10-05 15:55:49] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/ff347dedf78ef5e38c9c6d8eed291fa901aa3791-1.rds`.
+[2022-10-05 15:55:49] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=dorothea&organisms=10090&dorothea_levels=A,B,C,D&fields=sources,references,curation_effort,dorothea_level&license=academic`
+[2022-10-05 15:55:54] [SUCCESS] [OmnipathR] Loaded 256977 interactions from cache.
+[2022-10-05 15:56:04] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/ff347dedf78ef5e38c9c6d8eed291fa901aa3791-1.rds`.
+[2022-10-05 15:56:04] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=dorothea&organisms=10090&dorothea_levels=A,B,C,D&fields=sources,references,curation_effort,dorothea_level&license=academic`
+[2022-10-05 15:56:07] [SUCCESS] [OmnipathR] Loaded 256977 interactions from cache.
+[2022-10-05 16:06:45] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2022-10-05 16:06:45] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2022-10-05 16:06:45] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.

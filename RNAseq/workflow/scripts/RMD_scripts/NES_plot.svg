@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='864.00pt' height='864.00pt' viewBox='0 0 864.00 864.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHw4NjQuMDB8MC4wMHw4NjQuMDA='>
+    <rect x='0.00' y='0.00' width='864.00' height='864.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHw4NjQuMDA=)'>
+</g>
+<defs>
+  <clipPath id='cpMzEuMzV8ODA3LjA1fDIzLjMyfDc5NC4xNw=='>
+    <rect x='31.35' y='23.32' width='775.69' height='770.85' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMzEuMzV8ODA3LjA1fDIzLjMyfDc5NC4xNw==)'>
+<rect x='613.12' y='357.53' width='85.14' height='401.60' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E49E9A;' />
+<rect x='45.54' y='554.56' width='85.14' height='204.57' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #EFC9C6;' />
+<rect x='518.53' y='403.63' width='85.14' height='355.50' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E7A8A4;' />
+<rect x='234.74' y='536.37' width='85.14' height='222.76' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #EEC5C2;' />
+<rect x='707.72' y='58.36' width='85.14' height='700.77' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #CD5C5C;' />
+<rect x='140.14' y='548.48' width='85.14' height='210.65' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #EFC7C4;' />
+<rect x='329.33' y='463.38' width='85.14' height='295.75' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #EBB5B1;' />
+<rect x='423.93' y='447.62' width='85.14' height='311.51' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #EAB1AE;' />
+</g>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHw4NjQuMDA=)'>
+<text x='26.42' y='762.78' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='6.96px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='26.42' y='593.51' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='6.96px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='26.42' y='424.24' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='6.96px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='26.42' y='254.98' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='6.96px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='26.42' y='85.71' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='6.96px' lengthAdjust='spacingAndGlyphs'>8</text>
+<text transform='translate(93.27,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='29.58px' lengthAdjust='spacingAndGlyphs'>EGFR</text>
+<text transform='translate(187.86,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='29.61px' lengthAdjust='spacingAndGlyphs'>VEGF</text>
+<text transform='translate(282.46,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='29.48px' lengthAdjust='spacingAndGlyphs'>NFkB</text>
+<text transform='translate(377.06,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='26.22px' lengthAdjust='spacingAndGlyphs'>WNT</text>
+<text transform='translate(471.66,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='21.07px' lengthAdjust='spacingAndGlyphs'>p53</text>
+<text transform='translate(566.25,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='50.43px' lengthAdjust='spacingAndGlyphs'>Estrogen</text>
+<text transform='translate(660.85,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='54.88px' lengthAdjust='spacingAndGlyphs'>Androgen</text>
+<text transform='translate(755.45,804.26) rotate(-45)' text-anchor='end' style='font-size: 10.00px; font-weight: bold;fill: #4D4D4D; font-family: "DejaVu Sans";' textLength='29.02px' lengthAdjust='spacingAndGlyphs'>TGFb</text>
+<text x='419.20' y='856.02' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "DejaVu Sans";' textLength='64.65px' lengthAdjust='spacingAndGlyphs'>Pathways</text>
+<text transform='translate(14.23,408.75) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "DejaVu Sans";' textLength='36.56px' lengthAdjust='spacingAndGlyphs'>score</text>
+<image width='17.28' height='86.40' x='823.49' y='373.44' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEsCAYAAAACUNnVAAAAnUlEQVQ4jZ1USRKAMAhL+s5+2TfpoaMiZfVWBkhYQnHMeQ4AGCCxXiQwgNvE1xTe9dpNPlAK+TVpILeIaPAqIr8Ml8irimG/AB8Up99FpL1O9Vtc2Ft1iMprVp+CMpyBkEC4GdlqOtiWrlrkLVAh2xzUDy5rI5VKq5b+XCRHuKOfacIMbzpOA0o/kpWWHXZ+C3q1cVpVIGmard1tKRdzYAXUjNzEdAAAAABJRU5ErkJggg=='/>
+<text x='846.24' y='439.66' style='font-size: 8.80px; font-family: "DejaVu Sans";' textLength='5.59px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='846.24' y='410.28' style='font-size: 8.80px; font-family: "DejaVu Sans";' textLength='5.59px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='846.24' y='380.91' style='font-size: 8.80px; font-family: "DejaVu Sans";' textLength='5.59px' lengthAdjust='spacingAndGlyphs'>8</text>
+<text x='823.49' y='366.82' style='font-size: 11.00px; font-family: "DejaVu Sans";' textLength='29.56px' lengthAdjust='spacingAndGlyphs'>score</text>
+<line x1='823.49' y1='436.45' x2='826.94' y2='436.45' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<line x1='823.49' y1='407.07' x2='826.94' y2='407.07' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<line x1='823.49' y1='377.70' x2='826.94' y2='377.70' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<line x1='837.31' y1='436.45' x2='840.77' y2='436.45' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<line x1='837.31' y1='407.07' x2='840.77' y2='407.07' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<line x1='837.31' y1='377.70' x2='840.77' y2='377.70' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<text x='31.35' y='15.10' style='font-size: 13.20px; font-family: "DejaVu Sans";' textLength='216.45px' lengthAdjust='spacingAndGlyphs'>c("d15-lung", "d0-lung") vs NULL</text>
+</g>
+</svg>

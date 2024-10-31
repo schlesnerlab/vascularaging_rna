@@ -1,0 +1,5 @@
+[2023-03-07 12:08:56] [INFO]    [OmnipathR] Welcome to OmnipathR!
+[2023-03-07 12:08:56] [INFO]    [OmnipathR] Initialized cache: `/home/heyer/.cache/OmnipathR`.
+[2023-03-07 12:08:57] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/6c78c3a8952daddd73a6b8939a851a7c60c6ab2c-1.rds`.
+[2023-03-07 12:08:57] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=omnipath&organisms=10090&fields=sources,references,curation_effort&license=academic`
+[2023-03-07 12:08:58] [SUCCESS] [OmnipathR] Loaded 36361 interactions from cache.

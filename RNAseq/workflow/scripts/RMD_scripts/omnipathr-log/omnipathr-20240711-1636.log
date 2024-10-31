@@ -1,0 +1,94 @@
+[2024-07-11 16:36:31] [INFO]    [OmnipathR] Welcome to OmnipathR!
+[2024-07-11 16:36:31] [INFO]    [OmnipathR] OmnipathR version: 3.13.5
+[2024-07-11 16:36:31] [TRACE]   [OmnipathR] Reading JSON from `/home/heyer/.cache/OmnipathR/cache.json` (encoding: UTF-8).
+[2024-07-11 16:36:31] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-07-11 16:36:31] [INFO]    [OmnipathR] Initialized cache: `/home/heyer/.cache/OmnipathR`.
+[2024-07-11 16:36:31] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/db/db_def.json` (encoding: UTF-8).
+[2024-07-11 16:36:31] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-07-11 16:36:31] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/magic_bytes.json` (encoding: UTF-8).
+[2024-07-11 16:36:31] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-07-11 16:36:31] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/urls.json` (encoding: UTF-8).
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/id_types.json` (encoding: UTF-8).
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-07-11 16:36:32] [INFO]    [OmnipathR] Loading database `Ensembl and OMA organism names`.
+[2024-07-11 16:36:32] [INFO]    [OmnipathR] Looking up in cache `https://www.ensembl.org/info/about/species.html`: key=7332486db7400730697234bad76ca0c8e4d00799, latest version=1.
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Cache file path: /home/heyer/.cache/OmnipathR/7332486db7400730697234bad76ca0c8e4d00799-1.html
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/All/oma-species.txt`.
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/30e690cbb55dfc63b5903ab337f34ffc2f4be397-1.rds`.
+[2024-07-11 16:36:32] [INFO]    [OmnipathR] Loaded database `Ensembl and OMA organism names`.
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Organism(s): 10090
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Orthology targets: 
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-07-11 16:36:32] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/34b846ab9ed6fb44ec18a49ebb234ca4910737a3-1.rds`.
+[2024-07-11 16:36:33] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-07-11 16:36:33] [TRACE]   [OmnipathR] Converting JSON column `extra_attrs` to list.
+[2024-07-11 16:36:34] [TRACE]   [OmnipathR] Converting JSON column `evidences` to list.
+[2024-07-11 16:36:36] [TRACE]   [OmnipathR] Restricting interaction records to datasets: collectri; and resources: any
+[2024-07-11 16:36:38] [TRACE]   [OmnipathR] Filtering evidence columns: positive, negative, directed, undirected; to datasets: collectri; and resources: any; excluding resources: none
+[2024-07-11 16:37:22] [WARN]    [OmnipathR] Unknown genesymbol resource: `true`. Using UniProt, the default one, instead.
+[2024-07-11 16:37:22] [INFO]    [OmnipathR] Settings gene symbols from `uniprot`.
+[2024-07-11 16:37:22] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-07-11 16:37:22] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-07-11 16:37:22] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-07-11 16:37:22] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-07-11 16:37:22] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-07-11 16:37:22] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-07-11 16:37:23] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-07-11 16:37:23] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-07-11 16:37:23] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-07-11 16:37:23] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-07-11 16:37:23] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-07-11 16:37:23] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-07-11 16:37:23] [INFO]    [OmnipathR] 39002 records after setting gene symbols.
+[2024-07-11 16:37:23] [SUCCESS] [OmnipathR] Downloaded 39002 interactions.
+[2024-07-11 16:41:01] [TRACE]   [OmnipathR] Organism(s): 10090
+[2024-07-11 16:41:01] [TRACE]   [OmnipathR] Orthology targets: 
+[2024-07-11 16:41:01] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-07-11 16:41:02] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/34b846ab9ed6fb44ec18a49ebb234ca4910737a3-1.rds`.
+[2024-07-11 16:41:02] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-07-11 16:41:02] [TRACE]   [OmnipathR] Converting JSON column `extra_attrs` to list.
+[2024-07-11 16:41:03] [TRACE]   [OmnipathR] Converting JSON column `evidences` to list.
+[2024-07-11 16:41:05] [TRACE]   [OmnipathR] Restricting interaction records to datasets: collectri; and resources: any
+[2024-07-11 16:41:07] [TRACE]   [OmnipathR] Filtering evidence columns: positive, negative, directed, undirected; to datasets: collectri; and resources: any; excluding resources: none
+[2024-07-11 16:41:58] [WARN]    [OmnipathR] Unknown genesymbol resource: `true`. Using UniProt, the default one, instead.
+[2024-07-11 16:41:58] [INFO]    [OmnipathR] Settings gene symbols from `uniprot`.
+[2024-07-11 16:41:58] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-07-11 16:41:58] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-07-11 16:41:58] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-07-11 16:41:58] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-07-11 16:41:58] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-07-11 16:41:58] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-07-11 16:41:59] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-07-11 16:41:59] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-07-11 16:41:59] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-07-11 16:41:59] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-07-11 16:41:59] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-07-11 16:41:59] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-07-11 16:41:59] [INFO]    [OmnipathR] 39002 records after setting gene symbols.
+[2024-07-11 16:41:59] [SUCCESS] [OmnipathR] Downloaded 39002 interactions.
+[2024-07-11 16:42:32] [TRACE]   [OmnipathR] Organism(s): 10090
+[2024-07-11 16:42:32] [TRACE]   [OmnipathR] Orthology targets: 
+[2024-07-11 16:42:32] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-07-11 16:42:32] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/34b846ab9ed6fb44ec18a49ebb234ca4910737a3-1.rds`.
+[2024-07-11 16:42:32] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/interactions?genesymbols=yes&datasets=collectri&organisms=10090&dorothea_levels=A,B&fields=extra_attrs,evidences,sources,references,curation_effort&loops=yes&license=academic`
+[2024-07-11 16:42:32] [TRACE]   [OmnipathR] Converting JSON column `extra_attrs` to list.
+[2024-07-11 16:42:34] [TRACE]   [OmnipathR] Converting JSON column `evidences` to list.
+[2024-07-11 16:42:36] [TRACE]   [OmnipathR] Restricting interaction records to datasets: collectri; and resources: any
+[2024-07-11 16:42:38] [TRACE]   [OmnipathR] Filtering evidence columns: positive, negative, directed, undirected; to datasets: collectri; and resources: any; excluding resources: none
+[2024-07-11 16:43:23] [WARN]    [OmnipathR] Unknown genesymbol resource: `true`. Using UniProt, the default one, instead.
+[2024-07-11 16:43:23] [INFO]    [OmnipathR] Settings gene symbols from `uniprot`.
+[2024-07-11 16:43:23] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-07-11 16:43:23] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-07-11 16:43:23] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-07-11 16:43:23] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-07-11 16:43:23] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-07-11 16:43:23] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-07-11 16:43:24] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-07-11 16:43:24] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-07-11 16:43:24] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-07-11 16:43:24] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-07-11 16:43:24] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-07-11 16:43:24] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-07-11 16:43:24] [INFO]    [OmnipathR] 39002 records after setting gene symbols.
+[2024-07-11 16:43:24] [SUCCESS] [OmnipathR] Downloaded 39002 interactions.

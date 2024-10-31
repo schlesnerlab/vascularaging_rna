@@ -1,0 +1,50 @@
+[2024-01-30 17:53:16] [INFO]    [OmnipathR] Welcome to OmnipathR!
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] Reading JSON from `/home/heyer/.cache/OmnipathR/cache.json` (encoding: UTF-8).
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:53:16] [INFO]    [OmnipathR] Initialized cache: `/home/heyer/.cache/OmnipathR`.
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/db/db_def.json` (encoding: UTF-8).
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/magic_bytes.json` (encoding: UTF-8).
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/urls.json` (encoding: UTF-8).
+[2024-01-30 17:53:16] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:53:17] [TRACE]   [OmnipathR] Reading JSON from `/omics/groups/OE0436/internal/heyer/R_lib/OmnipathR/internal/id_types.json` (encoding: UTF-8).
+[2024-01-30 17:53:17] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:53:17] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-01-30 17:53:17] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:53:17] [INFO]    [OmnipathR] Loading database `Ensembl and OMA organism names`.
+[2024-01-30 17:53:17] [INFO]    [OmnipathR] Looking up in cache `https://www.ensembl.org/info/about/species.html`: key=7332486db7400730697234bad76ca0c8e4d00799, latest version=1.
+[2024-01-30 17:53:17] [TRACE]   [OmnipathR] Cache file path: /home/heyer/.cache/OmnipathR/7332486db7400730697234bad76ca0c8e4d00799-1.html
+[2024-01-30 17:53:17] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/All/oma-species.txt`.
+[2024-01-30 17:53:17] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/30e690cbb55dfc63b5903ab337f34ffc2f4be397-1.rds`.
+[2024-01-30 17:53:17] [INFO]    [OmnipathR] Loaded database `Ensembl and OMA organism names`.
+[2024-01-30 17:53:18] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-01-30 17:53:18] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:53:18] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-01-30 17:53:20] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-01-30 17:53:20] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-01-30 17:53:20] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-01-30 17:53:21] [INFO]    [OmnipathR] Loading database `Orthologous Matrix (OMA) gene pairs`.
+[2024-01-30 17:53:21] [TRACE]   [OmnipathR] Looking up in cache: `https://omabrowser.org/cgi-bin/gateway.pl?f=PairwiseOrthologs&p1=HUMAN&p2=MOUSE&p3=UniProt`.
+[2024-01-30 17:53:21] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/793353c9f6658b9d85f18fc09a6b36ba7f0d71db-1.rds`.
+[2024-01-30 17:53:21] [INFO]    [OmnipathR] Loaded database `Orthologous Matrix (OMA) gene pairs`.
+[2024-01-30 17:53:22] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-01-30 17:53:22] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-01-30 17:53:22] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-01-30 17:53:22] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-01-30 17:53:22] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-01-30 17:53:22] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
+[2024-01-30 17:55:34] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-01-30 17:55:34] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:55:34] [TRACE]   [OmnipathR] Reading JSON from `https://omnipathdb.org/resources` (encoding: UTF-8).
+[2024-01-30 17:55:34] [TRACE]   [OmnipathR] JSON validation successful: TRUE
+[2024-01-30 17:55:34] [TRACE]   [OmnipathR] Looking up in cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-01-30 17:55:35] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3492392585ba05414edfae46801492076437d7e7-1.rds`.
+[2024-01-30 17:55:35] [INFO]    [OmnipathR] Loaded from cache: `https://omnipathdb.org/annotations?resources=PROGENy&license=academic`
+[2024-01-30 17:55:35] [SUCCESS] [OmnipathR] Loaded 700257 annotation records from cache.
+[2024-01-30 17:55:37] [TRACE]   [OmnipathR] ID translation table: from `uniprot` to `genesymbol`, using `uniprot`.
+[2024-01-30 17:55:37] [TRACE]   [OmnipathR] Creating ID mapping table from `accession` to `gene_primary`, for organism 10090 (only reviewed: TRUE)
+[2024-01-30 17:55:37] [TRACE]   [OmnipathR] Loading all UniProt records for organism 10090 (only reviewed: TRUE); fields: accession,gene_primary
+[2024-01-30 17:55:37] [TRACE]   [OmnipathR] Looking up in cache: `https://rest.uniprot.org/uniprotkb/stream?format=tsv&fields=accession,gene_primary&query=organism_id:10090%20AND%20reviewed:true`.
+[2024-01-30 17:55:37] [TRACE]   [OmnipathR] Loaded data from RDS `/home/heyer/.cache/OmnipathR/3ec84ba713c02573704adb50f1a94dab684df34b-1.rds`.
+[2024-01-30 17:55:37] [SUCCESS] [OmnipathR] UniProt (rest.uniprot.org): loaded 17167 records from cache
